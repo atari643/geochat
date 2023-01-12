@@ -1,0 +1,7 @@
+{{ form_start(form) }}
+{{ form_row(form.text, {'label': 'Texte'}) }}
+{{ form_row(form.longitude, {'label': 'Longitude'}) }}
+{{ form_row(form.latitude, {'label': 'Latitude'}) }}
+
+<button class="btn btn-primary">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}
