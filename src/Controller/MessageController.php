@@ -21,6 +21,14 @@ class MessageController extends AbstractController
         ]);
     }
 
+    #[Route('/map', name: 'app_message_map', methods: ['GET'])]
+    public function map(MessageRepository $messageRepository): Response
+    {
+        return $this->render('message/map.html.twig', [
+            'messages' => $messageRepository->findAll(),
+        ]);
+    }
+
     #[Route('/new', name: 'app_message_new', methods: ['GET', 'POST'])]
     public function new(Request $request, MessageRepository $messageRepository): Response
     {

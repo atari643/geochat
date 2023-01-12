@@ -9,13 +9,15 @@
 		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
 		{% block stylesheets %}
 			<link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('leaflet/leaflet.css') }}"/>
 		{% endblock %}
 
 		{% block javascripts %}
 			<script type="text/javascript" src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('leaflet/leaflet.js') }}"></script>
 		{% endblock %}
 	</head>
-	<body class="mb-4">
+	<body class="mb-4" onLoad="onBodyLoad()">
 		<nav class="navbar navbar-expand-lg bg-primary navbar-dark mb-3">
 			<div class="container">
 				<a class="navbar-brand" href="{{ path('home') }}">
@@ -29,6 +31,9 @@
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item">
 							<a class="nav-link active" aria-current="page" href="{{ path('app_message_index') }}">Messages</a>
+						</li>
+                        <li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="{{ path('app_message_map') }}">Carte</a>
 						</li>
 					</ul>
 				</div>
