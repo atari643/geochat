@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\MessageRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: MessageRepository::class)]
 class Message
@@ -14,9 +15,11 @@ class Message
     private ?int $id = null;
 
     #[ORM\Column]
+    #[Assert\Range(min: -180, max: 180)]
     private ?float $longitude = null;
 
     #[ORM\Column]
+    #[Assert\Range(min: -90, max: 90)]
     private ?float $latitude = null;
 
     #[ORM\Column(type: "text",)]

@@ -25,6 +25,9 @@ class MessageController extends AbstractController
     public function new(Request $request, MessageRepository $messageRepository): Response
     {
         $message = new Message();
+        $message
+            ->setLongitude(44.8437806)
+            ->setLatitude(-0.5710693);
         $form = $this->createForm(MessageType::class, $message);
         $form->handleRequest($request);
 
@@ -61,7 +64,7 @@ class MessageController extends AbstractController
     #[Route('/{id}', name: 'app_message_delete', methods: ['POST'])]
     public function delete(Request $request, Message $message, MessageRepository $messageRepository): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$message->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $message->getId(), $request->request->get('_token'))) {
             $messageRepository->remove($message, true);
         }
 
