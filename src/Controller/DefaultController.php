@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends AbstractController
 {
-    #[Route('/default', name: 'home')]
+    #[Route('/', name: 'home')]
     public function index(MessageRepository $messages): Response
     {
         return $this->redirectToRoute('app_message_index');

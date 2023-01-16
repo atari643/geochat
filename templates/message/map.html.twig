@@ -21,7 +21,7 @@
         }).addTo(map);
    
         {% for message in messages %}
-            L.marker([{{ message.longitude }}, {{ message.latitude }}]).addTo(map)
+            L.marker([{{ message.latitude }}, {{ message.longitude }}]).addTo(map)
                 .bindPopup("<b>{{ message.text|escape("js") }}</b><br/><em>lng: {{ message.longitude }}, lat: {{ message.latitude }}</em>")
                 ;
         {% endfor %}
